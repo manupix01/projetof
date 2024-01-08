@@ -1,29 +1,34 @@
-from django.shortcuts import render
-
 # Create your views here.
 
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import Artista, Album, Musica
-from .serializers import ArtistaSerializer, AlbumSerializer, MusicaSerializer
+from .models import User, Post, Todo, Comment
+from .serializers import UserSerializer, PostSerializer, TodoSerializer, CommentSerializer
 
-class ArtistaViewSet(viewsets.ModelViewSet):
+class UserViewSet(viewsets.ModelViewSet):
     """
     Permite a manipulação de dados de Artistas
     """
-    queryset = Artista.objects.all()
-    serializer_class = ArtistaSerializer
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
-class AlbumViewSet(viewsets.ModelViewSet):
+class PostViewSet(viewsets.ModelViewSet):
     """
     Permite a manipulação de dados de Albuns
     """
-    queryset = Album.objects.all()
-    serializer_class = AlbumSerializer
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
 
-class MusicaViewSet(viewsets.ModelViewSet):
+class TodoViewSet(viewsets.ModelViewSet):
     """
     Permite a manipulação de dados de Músicas
     """
-    queryset = Musica.objects.all()
-    serializer_class = MusicaSerializer
+    queryset = Todo.objects.all()
+    serializer_class = TodoSerializer
+
+class CommentViewSet(viewsets.ModelViewSet):
+    """
+    Permite a manipulação de dados de Músicas
+    """
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
